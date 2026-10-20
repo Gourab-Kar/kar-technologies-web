@@ -94,13 +94,20 @@ main > section {
   background: var(--soft-blue);
 }
 
-main > section.section-reveal {
-  opacity: 0;
-  transition: opacity 1.3s ease;
+@keyframes section-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
-main > section.section-reveal.is-visible {
-  opacity: 1;
+main > .page-reveal {
+  opacity: 0;
+  animation: section-fade-in 1.3s ease both;
+  animation-delay: var(--reveal-delay, 0ms);
 }
 
 .home-hero {
@@ -320,10 +327,9 @@ a:not(header a, nav a) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  main > section.section-reveal {
+  main > .page-reveal {
     opacity: 1;
-    transform: none;
-    transition: none;
+    animation: none;
   }
 }
 
