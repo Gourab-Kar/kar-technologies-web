@@ -28,8 +28,28 @@
       <p>To help shape a useful conversation, outline your organization and goals, the workflow you want to improve, the users or teams involved, and any timing or integration requirements. You do not need to provide confidential account data or personal information in an initial inquiry.</p>
     </section>
     <section>
-      <h2>Contact details</h2>
-      <p>Official contact details and the inquiry submission method will be published here once confirmed.</p>
+      <h2>Send a request</h2>
+      <form id="contact-request-form">
+        <div class="form-field">
+          <label for="contact-name">Name</label>
+          <input id="contact-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="contact-phone">Contact no.</label>
+          <input id="contact-phone" name="contact-no" type="tel" autocomplete="tel" required>
+        </div>
+        <div class="form-field">
+          <label for="contact-email">Contact email address</label>
+          <input id="contact-email" name="contact-email" type="email" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="contact-request">Request</label>
+          <textarea id="contact-request" name="request" rows="5" required></textarea>
+        </div>
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+        <p id="contact-form-notice" role="status" aria-live="polite"></p>
+        <button type="submit">Submit request</button>
+      </form>
     </section>
   </main>
   <footer><p>Kar Technologies</p></footer>

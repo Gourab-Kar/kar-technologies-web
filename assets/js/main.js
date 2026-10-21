@@ -28,3 +28,44 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     showSlide(activeIndex + 1);
   });
 });
+
+const contactRequestForm = document.querySelector("#contact-request-form");
+
+if (contactRequestForm) {
+  const notice = document.querySelector("#contact-form-notice");
+  const submitButton = contactRequestForm.querySelector('button[type="submit"]');
+
+  contactRequestForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(contactRequestForm);
+    formData.append("access_key", "e0abb357-e9b3-4a18-a6ab-3ff16933f51b");
+    formData.append("subject", "New inquiry");
+
+    const originalText = submitButton.textContent;
+    submitButton.textContent = "Sending...";
+    submitButton.disabled = true;
+    notice.textContent = "";
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData
+      });
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok && data.success !== false) {
+        notice.textContent = "Thank you! Your request has been sent.";
+        contactRequestForm.reset();
+      } else {
+        notice.textContent = "Error: " + (data.message || "Could not send your request.");
+      }
+    } catch (error) {
+      notice.textContent = "Something went wrong. Please try again.";
+    } finally {
+      submitButton.textContent = originalText;
+      submitButton.disabled = false;
+    }
+  });
+}

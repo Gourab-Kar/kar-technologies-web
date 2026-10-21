@@ -94,6 +94,53 @@ main > section {
   background: var(--soft-blue);
 }
 
+.form-field {
+  display: grid;
+  gap: 0.4rem;
+  margin-block: 1rem;
+}
+
+.form-field label {
+  font-weight: 700;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--ink);
+  background: white;
+  font: inherit;
+}
+
+.form-field input:focus-visible,
+.form-field textarea:focus-visible {
+  outline: 3px solid var(--soft-cyan);
+  outline-offset: 2px;
+}
+
+#contact-request-form button {
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--navy);
+  border-radius: 4px;
+  color: white;
+  background: var(--navy);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#contact-request-form button:hover {
+  background: var(--royal-blue);
+}
+
+#contact-request-form button:focus-visible {
+  outline: 3px solid var(--soft-cyan);
+  outline-offset: 2px;
+}
+
 @keyframes section-fade-in {
   from {
     opacity: 0;
