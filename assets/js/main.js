@@ -39,7 +39,7 @@ if (contactRequestForm) {
     event.preventDefault();
 
     const formData = new FormData(contactRequestForm);
-    formData.append("access_key", "e0abb357-e9b3-4a18-a6ab-3ff16933f51b");
+    formData.append("access_key", "688934c4-252c-41c4-9c78-b89c0e72a1c7");
     formData.append("subject", "New inquiry");
 
     const originalText = submitButton.textContent;
